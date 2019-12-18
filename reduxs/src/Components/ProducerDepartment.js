@@ -11,6 +11,19 @@ class ProduceDept extends Component {
 
 
 
+    increment =(operation,index) =>{
+
+
+
+        if(operation === '+'){
+
+
+
+        }
+        else if(operation === '-'){
+
+        }
+    }
 
 
     render(){
@@ -21,7 +34,14 @@ class ProduceDept extends Component {
        const produceInventory =
        this.props.produce.map((item,index) =>{
 
-        return <li key={index}>{item.produce}:${item.price}</li>
+        return<div key={index}><li key={index}>{item.produce}:${item.price}</li>
+        <input type="button" onClick={() =>{
+            this.increment('+',index)}
+        } />
+        <input type="button" onClick={() =>{
+            this.increment('-',index)}
+        } />
+        </div> 
        })
 
 

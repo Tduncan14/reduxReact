@@ -11,6 +11,20 @@ class MeatDepartment extends Component {
 
 
 
+    increment =(operation,index) =>{
+
+
+
+        if(operation === '+'){
+
+
+
+        }
+        else if(operation === '-'){
+
+
+        }
+    }
 
 
     render(){
@@ -18,7 +32,16 @@ class MeatDepartment extends Component {
       
         const meatDepart = this.props.meat.map((item,index)=>{
 
-            return <li key={index}>{item.meat}:${item.price}</li>
+            return 
+            <div key={item}>
+            <li key={index}>{item.meat}:${item.price}</li>
+            <input type="button" onClick={() =>{
+                this.increment('+',index)}
+            } />
+            <input type="button" onClick={() =>{
+                this.increment('-',index)}
+            } />
+            </div>
         })
         return(
             <>

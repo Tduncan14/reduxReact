@@ -11,11 +11,29 @@ class FrozenDept extends Component{
 
 
 
-    render(){
+    render()
+    {
+        
+        console.log(this.props.frozen,"frozen inventory")
+        const frozenInventory = this.props.frozen.map((item,index)=>(
+
+
+     <li key={index}>{item.food}:{item.quantity}</li>
+
+
+
+
+        ))
+
+       
 
         return(
             <>
             <h1>Frozen Department</h1>
+            <ul>
+                {frozenInventory}
+            </ul>
+
             </>
         )
     }
@@ -31,10 +49,12 @@ function mapStateToProps(state){
     // returns on object with the local prop name to this component
     // value will be the property in the rootReducer
     //the piece of the store
-    return{
 
+    return{
+        frozen:state.frozen,
+     
     }
 
 }
 
-export default connect()(FrozenDept);
+export default connect(mapStateToProps)(FrozenDept);

@@ -8,7 +8,20 @@ import {connect} from 'react-redux';
 class FrozenDept extends Component{
 
 
+    increment = (operation,index) =>{
 
+
+    //  console.log(operation,'operation')
+
+
+    if(operation === '+'){
+
+    }
+    else if(operation === '-'){}
+
+    }
+
+    
 
 
     render()
@@ -17,8 +30,11 @@ class FrozenDept extends Component{
         console.log(this.props.frozen,"frozen inventory")
         const frozenInventory = this.props.frozen.map((item,index)=>(
 
-
-     <li key={index}>{item.food}:{item.quantity}</li>
+  <div  key={index}>
+     <li>{item.food}:{item.quantity}</li>
+     <input type="button" onClick={()=>{this.increment('+',index)}} value="+"/>
+     <input type="button" onClick={()=>{this.increment('-',index)}}value="-"/>
+     </div>
 
 
 

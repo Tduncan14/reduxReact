@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 
 import {connect} from 'react-redux';
 
+import updateMeat from './actions/meatupdate';
 
 
 
@@ -16,7 +17,7 @@ class MeatDepartment extends Component {
 
 
         if(operation === '+'){
-
+          updateMeat()
 
 
         }
@@ -32,16 +33,18 @@ class MeatDepartment extends Component {
       
         const meatDepart = this.props.meat.map((item,index)=>{
 
-            return 
-            <div key={item}>
-            <li key={index}>{item.meat}:${item.price}</li>
+            return (
+            <div key={index}>
+            <li >{item.meat}:${item.price}</li>
             <input type="button" onClick={() =>{
                 this.increment('+',index)}
-            } />
+            
+            } value="+" />
             <input type="button" onClick={() =>{
                 this.increment('-',index)}
-            } />
+            } value="-"/>
             </div>
+            )
         })
         return(
             <>

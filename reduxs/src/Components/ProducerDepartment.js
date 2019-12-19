@@ -4,6 +4,7 @@ import React,{Component} from 'react';
 
 import {connect} from 'react-redux';
 
+import updateProducer from './actions/produceUpdate';
 
 
 class ProduceDept extends Component {
@@ -17,7 +18,7 @@ class ProduceDept extends Component {
 
         if(operation === '+'){
 
-
+           updateProducer();
 
         }
         else if(operation === '-'){
@@ -34,13 +35,14 @@ class ProduceDept extends Component {
        const produceInventory =
        this.props.produce.map((item,index) =>{
 
-        return<div key={index}><li key={index}>{item.produce}:${item.price}</li>
+        return<div key={index}><li >{item.produce}:${item.price}</li>
         <input type="button" onClick={() =>{
             this.increment('+',index)}
-        } />
+        } value="+"/>
         <input type="button" onClick={() =>{
             this.increment('-',index)}
-        } />
+        } value="-
+    "/>
         </div> 
        })
 

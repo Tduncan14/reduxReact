@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 // we want this component to know about redux
 //and to connect it we need react-redux
 import {connect} from 'react-redux';
+import updateFrozen from './actions/frozenInUpdate';
 
 
 
@@ -10,17 +11,12 @@ class FrozenDept extends Component{
 
     increment = (operation,index) =>{
 
-
     //  console.log(operation,'operation')
 
+    updateFrozen(operation,index)
 
-    if(operation === '+'){
-
-    }
-    else if(operation === '-'){}
 
     }
-
     
 
 

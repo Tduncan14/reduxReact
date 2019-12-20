@@ -5,7 +5,7 @@
 
 export default(operation,index) =>{
 
- console.log('udate the frozen meatn',index,operation)
+ console.log('update the frozen',index,operation)
   return {
       type:'updateFrozen',
       payload:{

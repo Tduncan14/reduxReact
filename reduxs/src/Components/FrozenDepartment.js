@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 //and to connect it we need react-redux
 import {connect} from 'react-redux';
 import updateFrozen from './actions/frozenInUpdate';
+import { bindActionCreators } from 'redux';
 
 
 
@@ -13,7 +14,7 @@ class FrozenDept extends Component{
 
     //  console.log(operation,'operation')
 
-    updateFrozen(operation,index)
+    this.props.updateFrozen(operation,index)
 
 
     }
@@ -51,7 +52,7 @@ class FrozenDept extends Component{
     }
 }
 
-console.log(connect);
+console.log(connect,'connect');
 // connects two args
 // a first one is a function that is going to map a piece of redux state to the component props
 // mapStateToProps takes one 1 which is the rootReducer/state
@@ -69,4 +70,25 @@ function mapStateToProps(state){
 
 }
 
-export default connect(mapStateToProps)(FrozenDept);
+function mapDispatchToProps(dispatch){
+    // is how we tie our component with dispatch
+    // this function returns, bindActionCreators
+    // we hand bind action creators an object
+    //each property will be a local prop
+    //each val
+    //2nd arg for bindCreators is dispatch
+    // which will be this.props.updateFrozen
+
+    return bindActionCreators({
+        updateFrozen:updateFrozen
+    },dispatch)
+
+}
+
+// connect takes 2 args, the first is the function and that is going to map a piece redux state to the components
+//2nd arg to connect: mapDispatchToProps
+
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(FrozenDept);

@@ -21,6 +21,29 @@ const producerData = [
 export default( state = producerData, action) => {
 
 
+
+   const newState = [...state];
+
+
+   if(action.type === 'updateProduce'){
+          
+
+    console.log('hey are you working')
+    if(action.payload.operation === '+'){
+  
+      newState[action.payload.index].price++
+      
+    }
+
+    else if(action.payload.operation === '-'){
+
+      console.log('go down')
+      newState[action.payload.index].price--
+    }
+
+    return newState
+
+   }
     return state
 }
 

@@ -6,6 +6,8 @@ import {connect} from 'react-redux';
 
 import updateProducer from './actions/produceUpdate';
 
+import {bindActionCreators} from 'redux';
+
 
 class ProduceDept extends Component {
 
@@ -16,14 +18,7 @@ class ProduceDept extends Component {
 
 
 
-        if(operation === '+'){
-
-           updateProducer();
-
-        }
-        else if(operation === '-'){
-
-        }
+       this.props.updateProducer(operation,index)
     }
 
 
@@ -76,5 +71,14 @@ function mapStateToProps(state){
     }
 }
 
+function mapDispatchProps(dispatch){
 
-export default connect(mapStateToProps)(ProduceDept)
+
+
+    return bindActionCreators({
+        updateProducer:updateProducer
+    },dispatch)
+}
+
+
+export default connect(mapStateToProps,mapDispatchProps)(ProduceDept)

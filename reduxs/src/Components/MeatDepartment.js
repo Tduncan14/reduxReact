@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import updateMeat from './actions/meatupdate';
 
-
+import {bindActionCreators} from 'redux';
 
 class MeatDepartment extends Component {
 
@@ -16,15 +16,7 @@ class MeatDepartment extends Component {
 
 
 
-        if(operation === '+'){
-          updateMeat()
-
-
-        }
-        else if(operation === '-'){
-
-
-        }
+      this.props.updateMeat(operation,index)
     }
 
 
@@ -76,4 +68,19 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps)(MeatDepartment)
+function mapDispatchToProps(dispatch){
+
+
+
+
+
+
+    return bindActionCreators({
+
+        updateMeat:updateMeat
+
+    },dispatch)
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(MeatDepartment)

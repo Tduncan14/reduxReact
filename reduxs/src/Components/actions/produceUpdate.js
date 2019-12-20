@@ -4,12 +4,16 @@
 // this action creator is going to be handed to dispatch
 
 
-export default() =>{
+export default(operation,index) =>{
 
   console.log('update the produce food')
-
+   console.log(index,'the index')
 
     return {
-        type:'updateProduce'
+        type:'updateProduce',
+        payload:{
+          operation,
+          index
+        }
     }
 }

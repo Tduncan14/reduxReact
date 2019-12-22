@@ -31,6 +31,11 @@ export default (state = seedData, action)=>{
       }else if(action.payload.operation === '-'){
           newState[action.payload.index].quantity--
       }
+       else if(
+         action.type === 'clearInventory'
+       ){
+         return [];
+       }
       return newState;
   }
   else{

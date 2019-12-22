@@ -38,6 +38,11 @@ export default (state = meatData ,action) =>{
 
         newState[action.payload.index].price--
        }
+       else if(
+        action.type === 'clearInventory'
+      ){
+        return [];
+      }
 
   
       return newState

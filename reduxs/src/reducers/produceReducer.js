@@ -40,6 +40,11 @@ export default( state = producerData, action) => {
       console.log('go down')
       newState[action.payload.index].price--
     }
+    else if(
+      action.type === 'clearInventory'
+    ){
+      return [];
+    }
 
     return newState
 
